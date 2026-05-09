@@ -150,7 +150,7 @@ A **Model Context Protocol (MCP)** server that enables AI assistants like **GitH
 </table>
 
 <p align="center">
-  <strong>74 Tools</strong> for comprehensive Jira management
+  <strong>91 Tools</strong> for comprehensive Jira management
 </p>
 
 ## 📋 Prerequisites
@@ -550,7 +550,7 @@ For OAuth authentication:
 
 ## 🛠️ Available Tools
 
-> **74 tools** organised into 14 categories
+> **91 tools** organised into 11 categories
 
 ### 🔐 Authentication (7 tools)
 
@@ -761,7 +761,7 @@ This release underwent a comprehensive audit to ensure best practices and securi
 
 | Category | Status | Details |
 |----------|:------:|---------|
-| **API Version** | ✅ | All 74 tools use Jira REST API v3 (latest) |
+| **API Version** | ✅ | All 91 tools use Jira REST API v3 (latest) |
 | **Agile API** | ✅ | Sprint/Board tools use Jira Agile API v1.0 |
 | **Deprecated APIs** | ✅ | All deprecated endpoints migrated to modern alternatives |
 | **Security Vulnerabilities** | ✅ | 0 vulnerabilities (axios & qs patched) |

@@ -1,14 +1,12 @@
 {
   "name": "mcp-jira-cloud",
   "version": "4.2.1",
-  "description": "A Model Context Protocol (MCP) server for Jira Cloud integration. Enables AI assistants like GitHub Copilot and Claude to search issues, manage tickets, log work, handle sprints, and interact with your Jira instance seamlessly. Features 74 tools for comprehensive Jira management.",
+  "description": "A Model Context Protocol (MCP) server for Jira Cloud integration. Enables AI assistants like GitHub Copilot and Claude to search issues, manage tickets, log work, handle sprints, and interact with your Jira instance seamlessly. Features 91 tools for comprehensive Jira management.",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
@@ -27,15 +25,19 @@
     "SECURITY.md"
   ],
   "scripts": {
-    "build": "tsc && npm run minify",
-    "minify": "terser dist/index.js -o dist/index.js -c -m --module --mangle-props regex=/^_/",
+    "build": "tsc --noEmit && npm run bundle && npm run minify",
+    "bundle": "esbuild src/index.ts --bundle --platform=node --format=esm --outfile=dist/index.js --packages=external",
+    "minify": "terser dist/index.js -o dist/index.js -c -m --module --mangle-props regex=/^_/ && node -e \"const f=require('fs');f.writeFileSync('dist/index.js','#!/usr/bin/env node\\n'+f.readFileSync('dist/index.js','utf8'))\"",
     "dev": "ts-node --esm src/index.ts",
     "start": "node dist/index.js",
     "clean": "node -e \"require('fs').rmSync('dist', {recursive: true, force: true})\"",
     "prebuild": "npm run clean",
     "prepublishOnly": "npm run build",
     "prepack": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
     "pack:dry": "npm pack --dry-run"
   },
   "keywords": [
@@ -124,9 +126,12 @@
     "@semantic-release/release-notes-generator": "^14.1.0",
     "@types/node": "^25.2.1",
     "conventional-changelog-conventionalcommits": "^9.1.0",
+    "esbuild": "^0.25.0",
+    "eslint": "^9.0.0",
     "semantic-release": "^24.2.9",
     "terser": "^5.46.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^3.0.0"
   }
 }

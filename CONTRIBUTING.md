@@ -56,11 +56,14 @@ cd jira-mcp
 # Install dependencies
 npm install
 
-# Build
+# Build (type-check → bundle → minify)
 npm run build
 
-# Run in development mode
-npm run dev
+# Run tests
+npm test
+
+# Test locally as MCP server
+node dist/index.js --help
 ```
 
 ### Testing Your Changes
@@ -101,39 +104,45 @@ npm run dev
 
 When adding a new tool:
 
-1. Register it using `server.registerTool()`
-2. Provide a clear `title` and `description`
-3. Define the `inputSchema` using Zod
-4. Handle errors consistently
-5. Update the README.md with documentation
+1. Choose the appropriate tool file in `src/tools/` (or create a new one)
+2. Register it using `server.registerTool()`
+3. Provide a clear `title`, `description`, and `annotations`
+4. Define the `inputSchema` using Zod
+5. Use the `withClient()` wrapper for automatic auth + error handling
+6. Update the README.md with documentation
 
 Example:
 
 ```typescript
+import { READ_ONLY } from "../annotations.js";
+import { withClient } from "../client.js";
+
 server.registerTool(
   "jira_new_tool",
   {
     title: "New Tool",
     description: "Description of what this tool does and when to use it.",
+    annotations: READ_ONLY, // or WRITE_CREATE, WRITE_IDEMPOTENT, DESTRUCTIVE
     inputSchema: z.object({
       param1: z.string().min(1).describe("Description of param1"),
       param2: z.number().optional().describe("Optional param2"),
     }),
   },
-  async ({ param1, param2 }) => {
-    try {
-      const auth = await getAuthOrThrow();
-      const client = createClient(auth);
-      
-      // Your implementation here
-      
-      return textResult(result);
-    } catch (error) {
-      return textResult(errorToResult(error));
-    }
-  }
+  withClient(async (client, _auth, { param1, param2 }) => {
+    const response = await client.get(`/rest/api/3/example/${param1}`);
+    return response.data;
+  })
 );
 ```
+
+### Annotation Presets
+
+| Preset | Use When |
+|--------|----------|
+| `READ_ONLY` | Tool only reads data, no side effects |
+| `WRITE_CREATE` | Tool creates new resources (not idempotent) |
+| `WRITE_IDEMPOTENT` | Tool updates/sets state (safe to retry) |
+| `DESTRUCTIVE` | Tool deletes or removes resources |
 
 ## Commit Messages
 
