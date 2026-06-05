@@ -1,3 +1,9 @@
+## [4.3.3](https://github.com/tezaswi7222/jira-mcp/compare/v4.3.2...v4.3.3) (2026-06-05)
+
+### 🐛 Bug Fixes
+
+* republish to refresh npm README with v4.3.2 release notes ([#2](https://github.com/tezaswi7222/jira-mcp/issues/2)) ([3d626e6](https://github.com/tezaswi7222/jira-mcp/commit/3d626e6e17d420cea87f16e2f3a0bd719f82775f))
+
 ## [4.3.2](https://github.com/tezaswi7222/jira-mcp/compare/v4.3.1...v4.3.2) (2026-06-05)
 
 ### 🐛 Bug Fixes
