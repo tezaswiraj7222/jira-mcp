@@ -15,7 +15,7 @@
   <a href="https://www.npmjs.com/package/mcp-jira-cloud">
     <img src="https://img.shields.io/npm/dm/mcp-jira-cloud?style=flat-square&color=blue" alt="npm downloads">
   </a>
-  <a href="https://github.com/tezaswiraj7222/jira-mcp/blob/main/LICENSE">
+  <a href="https://github.com/tezaswiraj7222/jira-mcp/blob/master/LICENSE">
     <img src="https://img.shields.io/npm/l/mcp-jira-cloud?style=flat-square&color=green" alt="license">
   </a>
   <a href="https://github.com/tezaswiraj7222/jira-mcp">
