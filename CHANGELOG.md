@@ -1,3 +1,9 @@
+## [4.3.2](https://github.com/tezaswi7222/jira-mcp/compare/v4.3.1...v4.3.2) (2026-06-05)
+
+### 🐛 Bug Fixes
+
+* return caller-requested fields from jira_get_issue and jira_search_issues ([#2](https://github.com/tezaswi7222/jira-mcp/issues/2)) ([6612430](https://github.com/tezaswi7222/jira-mcp/commit/6612430b463b8851b448be4ecdcfab66af2dfcba))
+
 ## [4.3.1](https://github.com/tezaswi7222/jira-mcp/compare/v4.3.0...v4.3.1) (2026-05-09)
 
 ### 🐛 Bug Fixes
