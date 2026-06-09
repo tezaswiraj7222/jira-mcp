@@ -256,6 +256,12 @@ To verify your Jira connectivity and credentials:
 npx -y mcp-jira-cloud@latest --verify
 ```
 
+To enable diagnostic logging (logs API traffic to stderr):
+
+```bash
+npx -y mcp-jira-cloud@latest --verbose
+```
+
 ### Get Your API Token
 
 1. Go to [Atlassian API Tokens](https://id.atlassian.com/manage-profile/security/api-tokens)
