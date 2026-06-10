@@ -1,3 +1,12 @@
+## [4.4.0](https://github.com/tezaswiraj7222/jira-mcp/compare/v4.3.4...v4.4.0) (2026-06-10)
+
+### ✨ Features
+
+* add --config flag for interactive setup helper ([aeccdf7](https://github.com/tezaswiraj7222/jira-mcp/commit/aeccdf76a5ffa7826006743c5716ae83f2c00d05))
+* add --verify flag for Jira connectivity validation ([323f712](https://github.com/tezaswiraj7222/jira-mcp/commit/323f7120bef83c5f665ea4eccda120e25ef65814))
+* add ANSI colors and --verbose flag for diagnostic logging ([bf43445](https://github.com/tezaswiraj7222/jira-mcp/commit/bf43445e6ced9d28cea9eafa85fad55ca3486cbf))
+* implement comprehensive --help flag and update README ([3105786](https://github.com/tezaswiraj7222/jira-mcp/commit/3105786ac38acdad4c95e6fc823f8ded7bab1331))
+
 ## [4.3.4](https://github.com/tezaswiraj7222/jira-mcp/compare/v4.3.3...v4.3.4) (2026-06-05)
 
 ### 🐛 Bug Fixes
